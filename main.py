@@ -5,9 +5,9 @@ from linebot.models import MessageEvent,TextMessage,TextSendMessage
 import os
 
 app=Flask(__name__)
-#環境変数の取得
-YOUR_CHANNEL_ACCESS_TOKEN="アクセストークンを入力"
-YOUR_CHANNEL_SECRET="Channel Secretを入力"
+
+YOUR_CHANNEL_ACCESS_TOKEN="25lpFw9LMOCSpo4SJLlTFjC2Kzvk/u2Dla62dAxnQLd3WR86h0DDHtRefVGHcTra6JSajtHPE/EBMdlX3SyspYwFxsQZHr9FCQj8Mzc5FT7HozOjQIuxjt+AN9PJ0MISqjvXUAFHTMZ7yOoRqGi3rgdB04t89/1O/w1cDnyilFU="
+YOUR_CHANNEL_SECRET="ccc5b73b57b83105d02aeb5deaeb556f"
 line_bot_api=LineBotApi(YOUR_CHANNEL_ACCESS_TOKEN)
 handler=WebhookHandler(YOUR_CHANNEL_SECRET)
 
