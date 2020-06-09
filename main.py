@@ -25,7 +25,7 @@ def callback():
         abort(400)
     return "OK"
 
-@handler.add(MessageEvent, message=ImageSendMessage)
+@handler.add(MessageEvent, message=ImageMessage)
 def handle_message(event):
     line_bot_api.reply_message(event.reply_token,messages)
 
