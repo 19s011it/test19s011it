@@ -35,8 +35,8 @@ def handle_message(event):
 
 def make_image_message():
     messages = ImageSendMessage(
-        original_content_url="https://hogehoge.jpg",
-        preview_image_url="https://hogehoge-mini.jpg"
+        original_content_url="https://upload.wikimedia.org/wikipedia/commons/0/0a/Kagoshima_Career_Design_College.JPG",
+        preview_image_url="https://upload.wikimedia.org/wikipedia/commons/0/0a/Kagoshima_Career_Design_College.JPG"
     )
     return messages
 
