@@ -40,7 +40,7 @@ def handle_message(event):
 def handle_message(event):
     line_bot_api.reply_message(event.reply_token, TextSendMessage(text=event.message.text))
 
-def make_image_message():
+def make_image_message(event):
     main_image_path = f"static/images/{message_id}_main.jpg"
     preview_image_path = f"static/images/{message_id}_preview.jpg"
 
@@ -48,6 +48,7 @@ def make_image_message():
         original_content_url=f"https://date-the-image.herokuapp.com/{main_image_path}",
         preview_image_url=f"https://date-the-image.herokuapp.com/{preview_image_path}",
     )
+    line_bot_api.reply_message(event.reply_token, messages )
 #    messages = ImageSendMessage(
 #        original_content_url="https://upload.wikimedia.org/wikipedia/commons/0/0a/Kagoshima_Career_Design_College.JPG",
 #        preview_image_url="https://hogehoge-mini.jpg"
