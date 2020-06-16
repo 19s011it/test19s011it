@@ -27,13 +27,6 @@ def callback():
 
 @handler.add(MessageEvent, message=ImageMessage)
 def handle_message(event):
-    message_id = event.message.id
-    message_content = line_bot_api.get_message_content(message_id)
-
-    with open(Path(f"static/images/{message_id}.jpg").absolute(), "wb") as f:
-        for chunk in message_content.iter_content():
-            f.write(chunk)
-
     line_bot_api.reply_message(event.reply_token,messages=make_image_message())
 
 @handler.add(MessageEvent, message=TextMessage)
@@ -41,6 +34,13 @@ def handle_message(event):
     line_bot_api.reply_message(event.reply_token, TextSendMessage(text=event.message.text))
 
 def make_image_message(event):
+    message_id = event.message.id
+    message_content = line_bot_api.get_message_content(message_id)
+
+    with open(Path(f"static/images/{message_id}.jpg").absolute(), "wb") as f:
+        for chunk in message_content.iter_content():
+            f.write(chunk)
+
     main_image_path = f"static/images/{message_id}_main.jpg"
     preview_image_path = f"static/images/{message_id}_preview.jpg"
 
