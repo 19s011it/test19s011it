@@ -27,6 +27,7 @@ def callback():
 
 @handler.add(MessageEvent, message=ImageMessage)
 def handle_message(event):
+    print(event)
     line_bot_api.reply_message(event.reply_token,messages=make_image_message())
 
 @handler.add(MessageEvent, message=TextMessage)
