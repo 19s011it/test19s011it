@@ -34,6 +34,7 @@ def handle_message(event):
     line_bot_api.reply_message(event.reply_token, TextSendMessage(text=event.message.text))
 
 def make_image_message(event):
+    print("[CHECKPOINT]: {}".format(event))
     # message_id = event.message.id
     # message_content = line_bot_api.get_message_content(message_id)
     #
