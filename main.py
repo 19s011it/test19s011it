@@ -28,7 +28,7 @@ def callback():
 
 @handler.add(MessageEvent, message=ImageMessage)
 def handle_message(event):
-    line_bot_api.reply_message(event.reply_token,messages=make_image_message(event))
+    line_bot_api.reply_message(event.reply_token, messages=make_image_message(event))
 
 def make_image_message(event):
     print("[CHECKPOINT]: {}".format(event))
@@ -48,8 +48,9 @@ def make_image_message(event):
         original_content_url=image_url,
         preview_image_url=image_url,
     )
+    return image_message
 
-    line_bot_api.reply_message(event.reply_token, image_message)
+    # line_bot_api.reply_message(event.reply_token, image_message)
 
 
 @handler.add(MessageEvent, message=TextMessage)
