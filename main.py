@@ -38,7 +38,7 @@ def make_image_message(event):
     # return messages
     message_id = event.message.id
     message_content = line_bot_api.get_message_content(message_id)
-    with open("static/" + message_id + ".jpg", "wb") as f:
+    with open("C:/Users/DSP6101/PycharmProjects/test19s011it/static/" + message_id + ".jpg", "wb") as f:
         f.write(message_content.content)
 
     image_message = ImageSendMessage(
