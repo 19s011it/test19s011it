@@ -7,10 +7,10 @@ from linebot.models import (ImageMessage, ImageSendMessage, MessageEvent,
 app=Flask(__name__)
 
 #環境変数の取得
-YOUR_CHANNEL_ACCESS_TOKEN=os.environ["YOUR_CHANNEL_ACCESS_TOKEN"]
-YOUR_CHANNEL_SECRET=os.environ["YOUR_CHANNEL_SECRET"]
-line_bot_api=LineBotApi(YOUR_CHANNEL_ACCESS_TOKEN)
-handler=WebhookHandler(YOUR_CHANNEL_SECRET)
+YOUR_CHANNEL_ACCESS_TOKEN = os.environ["YOUR_CHANNEL_ACCESS_TOKEN"]
+YOUR_CHANNEL_SECRET = os.environ["YOUR_CHANNEL_SECRET"]
+line_bot_api = LineBotApi(YOUR_CHANNEL_ACCESS_TOKEN)
+handler = WebhookHandler(YOUR_CHANNEL_SECRET)
 URL = "https://test19s11it.herokuapp.com/static/"
 
 @app.route("/callback", methods=["POST"])
@@ -42,10 +42,11 @@ def make_image_message(event):
     with open("static/" + message_id + ".jpg", "wb") as f:
         f.write(message_content.content)
 
+    image_url = URL + "{}.jpg".format(message_id)
     image_message = ImageSendMessage(
         #       original_content_url=URL + message_id+".jpg",
-        original_content_url=URL + "{}.jpg".format(message_id),
-        preview_image_url=URL + "{}.jpg".format(message_id),
+        original_content_url=image_url,
+        preview_image_url=image_url,
     )
 
     line_bot_api.reply_message(event.reply_token, image_message)
