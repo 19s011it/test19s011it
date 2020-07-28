@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "vision-api-dev-283300",
+  "private_key_id": "2b166543073ffd917b9a5818272e016e9b72460e",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCwrXsNnvP2Wna6\n69ld9P40ZSiP2wxOEr0RdWr6Z6VUc9V5REU6ro8ZwqMMMhifTjpNd8M7OBCHP7FH\nEDkK6vzK2L9blvUu8OG6eDKQwgaui3DYGQGwSOmShlY4YY3HB+B2i5GbvsoAE/k3\nE2EcAxmVihuJHZ2qggI1PGxBouyaYJip8qWTl3QtYkCdjIHFxYMn8S0Y40XP7/et\n2Sv3Wv9c5DidD7xPHX3r9mYEQwuUtFarD7LGVlNKhJiciL3TompuFkhtLUD9g6uJ\nqktxkjJAkrAP0dk24H4Rz/SW47tcFZmnpiuy4aUC8ZpL1gl02XogQ6HiqdH2VJhq\nrf2FEER7AgMBAAECggEAKQpLTMkxI3c1IEt75SLtT891wiDgdVxN9fm//WXJFlqH\n6pDswepdjF7VkBYs+Qhra6ZXv/BQipJFhFvk3D/ks9vwa36f+qTy0mVsXYrskWwL\nrO72IPR26VXyPkuO6v5N6kuWacbCVo1NNTl3s9GWhlGb/thV0Q89Iw+jmAWYD23g\noLPP/7HU29jDfRCGvs4ejmr3hEIbD/Y3rhpiYBgKy+XRiF6dgRJjNB04dhv9E/Mf\n6GnVd2Q386+grBsIKhlXwPia6tpCztCvUTe4Q31LY1FaiSX4i9kwIeVVHAFVO+13\n9EqZOxlwuFi7Tm8Q4qbjipxxiFLSLws+ZHDmUNIUDQKBgQDpDUSTxNHjSUXhyHL7\noYkhNvVgLglzaDY7+prT58QzEB9NgVSGnPguBYcT1qOEaAROH5ID+Nd2RZ8V9vX/\n33lfQp9AB38CB0NvX5MKxpzLyOIxCd+NUDah9ujxh8wIFpz9eQXeFUT5cxcQW410\n16jM0gaPlFGf+g0cZypR9cWgXQKBgQDCEyRb7LDBUYXTtzV1cAUaGjDqTLxA+E5C\nUxRc6ac+/JrapGbWSVumEwHYzWtG+MGO41wE3R9+UiGuRbFXwGzqeVe9ajWnqocy\nXuSNZ5NSh7gzTwVP7nh87tP1jvAgwbSC09XLexxiFEGPZITCj3SG1roL4Lbg0yX0\nRWDMMjMKtwKBgBDFL6Yih6f/YdP5hKyu1xtYxReCuJNhcGWohvOwveGey2HcaKS3\nLvTA2ROIYoPoqEam5u76PSb5o5UFDHa5Mha0yJjm8TDILQYaro4b9LSFZCF7QGb+\n2q+VAPZAe2IpnmpvBwkQJsJ8kbBPpkI+MptqkaZLWgRVDhR5KAZ11R7RAoGBAKuo\nYL2KEiE7qUJFR1yTc3/N8LwcmVpiBl51u4ofBNYaeiGvzmH1SsIPB9AqiZuhxRpM\nkYSfzQ5fOPk7HYw/YFbYcznPqpudoq1z73X/SfhyoQOI/mrfw+TFHeeRwWVH0BDz\nq6OqRcWeowpg32hzmJ73aGG/JiKfwG9Zui+Cq1DrAoGBAJseN6cFjhCB0D8PZ2oV\ncwCgGigm379onU5wpO04O3NCcxpsXDxmdhOQhbC146rGQg7eL+mx4n9MAptH8Cra\nfVMCdJ9A6TTXiHQLkgSWbf+bHq008LjuGoGyjAjoKQ9uSKhiM1lAVNvUp2jsxBjl\nwUzUOBp1bGajNK40X7wQBuaj\n-----END PRIVATE KEY-----\n",
+  "client_email": "ryota-478@vision-api-dev-283300.iam.gserviceaccount.com",
+  "client_id": "110116033016715254619",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/ryota-478%40vision-api-dev-283300.iam.gserviceaccount.com"
+}
