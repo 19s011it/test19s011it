@@ -44,6 +44,8 @@ def make_image_message(event):
     #       preview_image_url="https://hogehoge-mini.jpg"
     # )
     # return messages
+    from google.cloud import vision
+from google.oauth2 import service_account
     message_id = event.message.id
     message_content = line_bot_api.get_message_content(message_id)
     
