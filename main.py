@@ -31,7 +31,7 @@ def handle_message(event):
     line_bot_api.reply_message(event.reply_token, messages=make_image_message(event))
 
 def make_image_message(event):
-    print("[CHECKPOINT]: {}".format(event))
+    # print("[CHECKPOINT]: {}".format(event))
     # messages = ImageSendMessage(
     #       original_content_url="https://upload.wikimedia.org/wikipedia/commons/0/0a/Kagoshima_Career_Design_College.JPG",
     #       preview_image_url="https://hogehoge-mini.jpg"
