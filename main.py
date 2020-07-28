@@ -51,10 +51,8 @@ def make_image_message(event):
         f.write(message_content.content)
 
     image_url = URL + "{}.jpg".format(message_id)
-    response = client.annotate_image({
-    'image': {'source': {'image_uri': image_url}},
-    'features': [{'type': vision.enums.Feature.Type.FACE_DETECTION}],
-})
+
+  
     image_message = ImageSendMessage(
         #       original_content_url=URL + message_id+".jpg",
         original_content_url=image_url,
