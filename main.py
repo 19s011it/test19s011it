@@ -5,6 +5,7 @@ from linebot.exceptions import InvalidSignatureError
 from linebot.models import (ImageMessage, ImageSendMessage, MessageEvent,
                             TextMessage, TextSendMessage)
 from google.cloud import vision
+from pathlib import Path
 from google.oauth2 import service_account
 
 app=Flask(__name__)
@@ -44,8 +45,6 @@ def make_image_message(event):
     #       preview_image_url="https://hogehoge-mini.jpg"
     # )
     # return messages
-    from google.cloud import vision
-from google.oauth2 import service_account
     message_id = event.message.id
     message_content = line_bot_api.get_message_content(message_id)
     
@@ -54,7 +53,11 @@ from google.oauth2 import service_account
 
     image_url = URL + "{}.jpg".format(message_id)
 
-  
+    response = client.text_detection(image=image_url)
+
+    for text in response.text_annotations:
+        print(text.description)
+
     image_message = ImageSendMessage(
         #       original_content_url=URL + message_id+".jpg",
         original_content_url=image_url,
