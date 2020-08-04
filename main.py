@@ -45,8 +45,9 @@ def handle_image_message(event):
         './vision-api-dev-283300-2b166543073f.json'
     )
     client = vision.ImageAnnotatorClient(credentials=credentials)
-    response = client.text_detection(image="static/" + message_id + ".jpg")
+    response = client.text_detection(image=URL + "{}.jpg".format(message_id))
     print(response)
+
 #画像を表示する
     image_url = URL + "{}.jpg".format(message_id)
     image_message = ImageSendMessage(
