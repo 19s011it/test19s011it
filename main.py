@@ -51,6 +51,9 @@ def handle_image_message(event):
     response = client.text_detection(image=image_content)
     print(response)
 
+    with open("static/response.json", "w") as f:
+        f.write(response)
+
 #画像を表示する
     image_url = URL + "{}.jpg".format(message_id)
     image_message = ImageSendMessage(
