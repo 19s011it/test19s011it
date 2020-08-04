@@ -1,12 +1,11 @@
-import os
-from flask import Flask, abort, request
+from flask import Flask, request,abort
 from linebot import LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError
-from linebot.models import (ImageMessage, ImageSendMessage, MessageEvent,
-                            TextMessage, TextSendMessage)
-from google.cloud import vision
-from pathlib import Path
-from google.oauth2 import service_account
+from linebot.models import  MessageEvent,TextMessage, TextSendMessage, ImageSendMessage, ImageMessage
+import os
+import requests
+import base64
+import json
 
 app=Flask(__name__)
 
@@ -16,63 +15,41 @@ YOUR_CHANNEL_SECRET = os.environ["YOUR_CHANNEL_SECRET"]
 line_bot_api = LineBotApi(YOUR_CHANNEL_ACCESS_TOKEN)
 handler = WebhookHandler(YOUR_CHANNEL_SECRET)
 URL = "https://test19s011it.herokuapp.com/static/"
-credentials = service_account.Credentials.from_service_account_file(
-    './vision-api-dev-283300-2b166543073f.json'
-)
-client = vision.ImageAnnotatorClient(credentials=credentials)
 
 @app.route("/callback", methods=["POST"])
 def callback():
     signature = request.headers["X-Line-Signature"]
-
     body = request.get_data(as_text=True)
     print("Request body: {}".format(body))
-
     try:
         handler.handle(body, signature)
     except InvalidSignatureError:
         abort(400)
     return "OK"
-
+ 
+#テキストの場合
+@handler.add(MessageEvent, message=TextMessage)
+def handle_text_message(event):
+    line_bot_api.reply_message(event.reply_token, TextSendMessage(text=event.message.text))
+#画像の場合
 @handler.add(MessageEvent, message=ImageMessage)
-def handle_message(event):
-    line_bot_api.reply_message(event.reply_token, messages=make_image_message(event))
-
-def make_image_message(event):
-    # print("[CHECKPOINT]: {}".format(event))
-    # messages = ImageSendMessage(
-    #       original_content_url="https://upload.wikimedia.org/wikipedia/commons/0/0a/Kagoshima_Career_Design_College.JPG",
-    #       preview_image_url="https://hogehoge-mini.jpg"
-    # )
-    # return messages
+def handle_image_message(event):
+    #print ("[NATTO]: {}".format(event))
     message_id = event.message.id
     message_content = line_bot_api.get_message_content(message_id)
-    
+ 
+#画像を保存する
     with open("static/" + message_id + ".jpg", "wb") as f:
         f.write(message_content.content)
-
+ 
+#画像を表示する
     image_url = URL + "{}.jpg".format(message_id)
-
-    response = client.text_detection(image=image_url)
-
-    for text in response.text_annotations:
-        print(text.description)
-
     image_message = ImageSendMessage(
-        #       original_content_url=URL + message_id+".jpg",
-        original_content_url=image_url,
-        preview_image_url=image_url,
+        original_content_url=image_url,     #開く前の画像
+        preview_image_url=image_url,        #開いた時の画像
     )
-    return image_message
-
-    # line_bot_api.reply_message(event.reply_token, image_message)
-
-
-@handler.add(MessageEvent, message=TextMessage)
-def handle_message(event):
-    line_bot_api.reply_message(event.reply_token, TextSendMessage(text=event.message.text))
-
-
+    line_bot_api.reply_message(event.reply_token, image_message)
+ 
 if __name__=="__main__":
     port = int(os.getenv("PORT",5000))
     app.run(host="0.0.0.0", port=port)
