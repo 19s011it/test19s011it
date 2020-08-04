@@ -4,7 +4,9 @@ from linebot.exceptions import InvalidSignatureError
 from linebot.models import  MessageEvent,TextMessage, TextSendMessage, ImageSendMessage, ImageMessage
 import os
 from google.cloud import vision
+from google.cloud.vision import types
 from google.oauth2 import service_account
+
 
 app=Flask(__name__)
 
@@ -45,7 +47,8 @@ def handle_image_message(event):
         './vision-api-dev-283300-2b166543073f.json'
     )
     client = vision.ImageAnnotatorClient(credentials=credentials)
-    response = client.text_detection(image=URL + "{}.jpg".format(message_id))
+    image_content = types.Image(content=message_content.content)
+    response = client.text_detection(image=image_content)
     print(response)
 
 #画像を表示する
